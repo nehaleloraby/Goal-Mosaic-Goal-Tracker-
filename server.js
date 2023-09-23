@@ -15,9 +15,8 @@ const mongoURI = process.env.MONGO_URI
 
 // connect to mongo 
 mongoose.connect(mongoURI)
-
 const db = mongoose.connection
-// optional create status messages to check mongo connection 
+// check mongo connection 
 db.on('error', (err) => { console.log('ERROR: ' , err)})
 db.on('connected', () => { console.log('mongo connected')})
 db.on('disconnected', () => { console.log('mongo disconnected')})
@@ -26,7 +25,7 @@ app.use(express.urlencoded({ extended: true}))
 app.use(express.json())
 app.use(methodOverride('_method'))
 
-// For static files
+// For Static Files
 app.use(express.static('public'))
 
 // For Template
@@ -34,19 +33,14 @@ app.use(expressLayout)
 
 // Setting the views directory to the correct path
 app.set('views', path.join(__dirname, 'views'))
-
+// Specify layout and setting up views 
 app.set('layout', './layouts/main')
 app.set('view engine', 'ejs')
 
-// Routes
+// For Routes
 const goalRoutes = require('./backend/routes/goal')
 app.use('/', goalRoutes)
 
-
-// Handling 404 error
-app.get('*', (req, res) => {
-    res.status(404).render('404')
-})
 
 app.listen(PORT, () => {
     console.log(`Server is listening on PORT: ${PORT}`)
