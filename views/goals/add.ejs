@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Add New Goal</h1>
+
+</div>
+
+<div class="col py-3">
+    <div class="row">
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                    <li class="breadcrumb-item active">New Goal</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<form action="/add" method="POST">
+    <div class="form-group mb-4">
+        <label for="goal">Goal</label>
+        <input type="text" class="form-control" id="goal" name="goal" placeholder="Enter Goal" required>
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="description">Goal Description</label>
+        <textarea class="form-control" name="description" id="description" rows="4" placeholder="Enter Goal Description"></textarea>
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="deadline">Deadline</label>
+        <input type="date" class="form-control" id="deadline" name="deadline">
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="category">Category</label>
+        <input type="text" class="form-control" id="category" name="category" value="" placeholder="Enter Goal Category">
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="progress">Progress</label>
+        <select class="form-control" id="progress" name="progress">
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+        </select>
+    </div>
+
+    <div class="form-group mb-4">
+        <button type="submit" class="btn btn-primary">Add Goal</button>
+    </div>
+</form>
+
