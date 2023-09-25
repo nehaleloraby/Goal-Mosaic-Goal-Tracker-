@@ -31,6 +31,8 @@ app.use(express.static('public'))
 // For Template
 app.use(expressLayout)
 
+
+// Define settings at the beginning of application
 // Setting the views directory to the correct path
 app.set('views', path.join(__dirname, 'views'))
 // Specify layout and setting up views 
